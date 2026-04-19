@@ -10,9 +10,9 @@
 
 ##### Как работает пайплайн
 
-1. Скрипт открывает `reviews\_input.csv` и читает все отзывы
+1. Скрипт открывает `reviews\\\_input.csv` и читает все отзывы
 2. Каждый отзыв отправляется в API с инструкцией вернуть JSON
-3. Ответ читает ответ модели и записывается в `reviews\_output.csv`
+3. Ответ читает ответ модели и записывается в `reviews\\\_output.csv`
 
 ## 
 
@@ -21,8 +21,8 @@
 ```
 API-Pipeline/
 ├── pipeline.py          # основной скрипт
-├── reviews\_input.csv    # входные данные — 20 отзывов о товарах
-├── reviews\_output.csv   # результат работы скрипта
+├── reviews\\\_input.csv    # входные данные — 20 отзывов о товарах
+├── reviews\\\_output.csv   # результат работы скрипта
 └── README.md            # описание проекта
 ```
 
@@ -36,7 +36,7 @@ pip install requests
 
 ###### 2\. Получить API-ключ
 
-Зарегистрироваться на [console.groq.com](https://console.groq.com), создать API-ключ и вставить его в скрипт в переменную `API\_KEY`.
+Зарегистрироваться на [console.groq.com](https://console.groq.com), создать API-ключ и вставить его в скрипт в переменную `API\\\_KEY`.
 
 ###### 3\. Запустить скрипт
 
@@ -44,14 +44,14 @@ pip install requests
 python pipeline.py
 ```
 
-Скрипт обработает все отзывы и сохранит результат в `reviews\_output.csv`.
+Скрипт обработает все отзывы и сохранит результат в `reviews\\\_output.csv`.
 
 ## 
 
 ###### Пример входных данных (reviews\_input.csv)
 
 ```
-id,review\_text
+id,review\\\_text
 1,"Absolutely love this product! It exceeded all my expectations."
 2,"Terrible experience. The item broke after two days."
 3,"It's okay, nothing special. Does what it's supposed to do."
@@ -60,11 +60,23 @@ id,review\_text
 ###### Пример выходных данных (reviews\_output.csv)
 
 ```
-id,review\_text,sentiment,topic,confidence,reason,status
+id,review\\\_text,sentiment,topic,confidence,reason,status
 1,"Absolutely love this product!...",positive,product quality,high,Strong positive language used,ok
 2,"Terrible experience...",negative,product durability,high,Negative experience clearly described,ok
 3,"It's okay...",neutral,general satisfaction,medium,Mixed or neutral language detected,ok
 ```
+
+Описание столбцов:
+
+* sentiment — тональность (positive = положительный, negative = отрицательный, neutral = нейтральный)
+* topic — тема отзыва (например: "product quality" = качество товара, "product durability" = долговечность товара)
+* confidence — уверенность модели (high = высокая, medium = средняя, low = низкая)
+* reason — причина, почему модель так решила
+* status — статус обработки (ok = успешно, error = ошибка)
+
+
+
+
 
 ###### Формат JSON-ответа от модели
 
