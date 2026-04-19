@@ -1,0 +1,21 @@
+id,review_text,sentiment,topic,confidence,reason,status
+1,Absolutely love this product! It exceeded all my expectations and the quality is outstanding.,positive,product quality,high,exceeded all expectations and quality is outstanding,ok
+2,Terrible experience. The item broke after two days and customer support was useless.,negative,customer service,high,Poor support and product quality.,ok
+3,"It's okay, nothing special. Does what it's supposed to do but nothing more.",neutral,product review,high,Review lacks strong emotions or opinions.,ok
+4,Best purchase I've made this year! Fast shipping and the product works perfectly.,positive,product purchase,high,Customer is satisfied with the product and shipping.,ok
+5,Very disappointed. The color was completely different from the photos on the website.,negative,product color,high,Color mismatch with website photos.,ok
+6,Decent product for the price. Not amazing but gets the job done.,neutral,product quality,high,It meets expectations but lacks excellence.,ok
+7,Fantastic! My whole family loves it. Will definitely buy again.,positive,product review,high,Customer is very satisfied with the product.,ok
+8,Waste of money. Stopped working after a week and the return process was a nightmare.,negative,product quality,high,Poor performance and difficult return process.,ok
+9,Pretty good overall. A few minor issues but nothing major. Satisfied with my purchase.,positive,purchase experience,high,Customer is satisfied with their purchase.,ok
+10,Incredible quality and super fast delivery. Exactly as described. Highly recommend!,positive,product quality,high,Customer is satisfied with the product's quality and delivery time.,ok
+11,Not worth it. Cheap materials and the instructions were impossible to understand.,negative,product quality,high,Poor materials and unclear instructions.,ok
+12,Average product. It works but I expected better for this price range.,negative,product quality,high,Expected better quality for the price.,ok
+13,Exceeded my expectations in every way. The build quality is excellent.,positive,product quality,high,Excellent build quality mentioned.,ok
+14,Horrible. Arrived damaged and the seller refused to help. Never buying again.,negative,seller service,high,Seller failed to resolve issues with damaged product.,ok
+15,It's fine. Nothing to complain about but nothing to rave about either.,neutral,hotel stay,high,Review lacks strong emotions or opinions.,ok
+16,Amazing product! Changed my daily routine completely. Best thing I've bought in years.,positive,product,high,Customer is extremely satisfied with the product's impact on their life.,ok
+17,Very poor quality. Fell apart within a week of normal use.,negative,product quality,high,Product failed to meet expectations.,ok
+18,"Works as expected. Simple and functional, no issues so far.",positive,product performance,high,User is satisfied with the product's functionality.,ok
+19,Outstanding performance! Worth every penny. My friends are jealous.,positive,product review,high,Customer is satisfied and impressed with the product.,ok
+20,Complete disappointment. The product looks nothing like the pictures.,negative,product quality,high,Product does not match advertised images.,ok
