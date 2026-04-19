@@ -1,54 +1,54 @@
-# Задание 2 — API-пайплайн: Классификация тональности отзывов
+### Задание 2 — API-пайплайн: Классификация тональности отзывов
 
-### Описание задачи
+##### Задание
 
-Скрипт читает отзывы о товарах из CSV-файла, отправляет каждый отзыв в Claude (Anthropic API) и получает структурированный JSON-ответ с тональностью, темой и уверенностью модели. Результат сохраняется в выходной CSV-файл.
+Скрипт на Python, который читает отзывы о товарах из CSV-файла, отправляет каждый отзыв в языковую модель через API и получает обратно структурированный JSON с тональностью отзыва, темой и уровнем уверенности модели. Всё это автоматически сохраняется в итоговый CSV-файл.
 
-**Пайплайн:**
+В качестве LLM я использовала **Groq API** с моделью `llama-3.1-8b-instant`.
+
+##### 
+
+##### Как работает пайплайн
+
+1. Скрипт открывает `reviews\_input.csv` и читает все отзывы
+2. Каждый отзыв отправляется в API с инструкцией вернуть JSON
+3. Ответ читает ответ модели и записывается в `reviews\_output.csv`
+
+## 
+
+##### Файлы в репозитории
 
 ```
-reviews\_input.csv → pipeline.py → Anthropic API (Claude) → reviews\_output.csv
-```
-
-### Структура проекта
-
-```
-task2/
+API-Pipeline/
 ├── pipeline.py          # основной скрипт
-├── reviews\_input.csv    # входные данные (20 отзывов)
+├── reviews\_input.csv    # входные данные — 20 отзывов о товарах
 ├── reviews\_output.csv   # результат работы скрипта
-└── README.md            # этот файл
+└── README.md            # описание проекта
 ```
 
-### Установка и запуск
+##### Запуск:
 
-##### 1\. Установить зависимости
+###### 1\. Установить зависимости
 
 ```bash
 pip install requests
 ```
 
-##### 2\. Установить API-ключ
+###### 2\. Получить API-ключ
 
-**Windows (PowerShell):**
+Зарегистрироваться на [console.groq.com](https://console.groq.com), создать API-ключ и вставить его в скрипт в переменную `API\_KEY`.
 
-```powershell
-$env:ANTHROPIC\_API\_KEY="sk-ant-..."
-```
-
-**Mac / Linux:**
-
-```bash
-export ANTHROPIC\_API\_KEY="sk-ant-..."
-```
-
-##### 3\. Запустить скрипт
+###### 3\. Запустить скрипт
 
 ```bash
 python pipeline.py
 ```
 
-##### Пример входных данных ("reviews\_input.csv")
+Скрипт обработает все отзывы и сохранит результат в `reviews\_output.csv`.
+
+## 
+
+###### Пример входных данных (reviews\_input.csv)
 
 ```
 id,review\_text
@@ -57,16 +57,18 @@ id,review\_text
 3,"It's okay, nothing special. Does what it's supposed to do."
 ```
 
-##### Пример выходных данных ("reviews\_output.csv")
+###### Пример выходных данных (reviews\_output.csv)
 
 ```
 id,review\_text,sentiment,topic,confidence,reason,status
 1,"Absolutely love this product!...",positive,product quality,high,Strong positive language used,ok
-2,"Terrible experience...",negative,product durability,high,Negative experience described,ok
-3,"It's okay...",neutral,general satisfaction,medium,Mixed or neutral language,ok
+2,"Terrible experience...",negative,product durability,high,Negative experience clearly described,ok
+3,"It's okay...",neutral,general satisfaction,medium,Mixed or neutral language detected,ok
 ```
 
-##### Формат JSON-ответа от Claude
+###### Формат JSON-ответа от модели
+
+Модель возвращает JSON такого вида:
 
 ```json
 {
@@ -79,9 +81,8 @@ id,review\_text,sentiment,topic,confidence,reason,status
 
 ##### Используемые технологии
 
-* **Язык:** Python 
-* **API:** Anthropic Claude (claude-haiku-4-5)
-* **Библиотеки:** `requests`, `csv`, `json`
-* **Входные данные:** CSV (20 отзывов о товарах)
-* **Выходные данные:** CSV с результатами классификации
+* **Язык:** Python 3
+* **API:** Groq (модель llama-3.1-8b-instant)
+* **Входные данные:** CSV с 20 отзывами о товарах
+* **Выходные данные:** CSV с результатами классификации по тональности
 
